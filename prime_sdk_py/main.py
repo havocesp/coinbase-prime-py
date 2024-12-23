@@ -12,18 +12,21 @@
 # See the License for the specific language governing permissions and
 #  limitations under the License.
 
-from setuptools import setup, find_packages
+from .credentials import Credentials
+from .list_portfolios import PrimeClient, ListPortfoliosRequest
 
-setup(
-    name="prime-sdk-py",
-    version="0.1.0",
-    packages=find_packages(),
-    install_requires=[
-        'requests',
-    ],
-    entry_points={
-        'console_scripts': [
-            'prime-sdk=prime_sdk_py.__main__:main',
-        ],
-    },
-)
+
+def main():
+    credentials = Credentials.from_env("PRIME_CREDENTIALS")
+    prime_client = PrimeClient(credentials)
+
+    request = ListPortfoliosRequest()
+    try:
+        response = prime_client.list_portfolios(request)
+        print(response)
+    except Exception as e:
+        print(f"failed to list portfolios: {e}")
+
+
+if __name__ == "__main__":
+    main()

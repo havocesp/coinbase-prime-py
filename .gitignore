@@ -1,0 +1,7 @@
+/build/
+/prime_sdk_py.egg-info/
+
+/.vscode/
+/.idea/
+/*.iml
+/.zed/
