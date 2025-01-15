@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+"""Python API wrapper for Coinbase Prime"""
 # Copyright 2024-present Coinbase Global, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,15 +18,30 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="prime-sdk-py",
-    version="0.1.0",
-    packages=find_packages(),
+    name="coinbase-prime-py",
+    version="0.1.1",
+    packages=find_packages(exclude=['.idea*', 'build*', '*.vs', '*.code', '*.vscode', 'coinbase-prime-py.egg-info*', 'bdist*', 'sdist*', 'dist*', 'venv*']),
     install_requires=[
-        'requests',
+        'requests'
+    ],
+    desctiption=__doc__,
+    author='havocesp',
+    author_email='10012416+havocesp@users.noreply.github.com',
+    description_content_type='text/plain',
+    requires_python='>=3.8',
+    classifiers=[
+        'Development Status :: 4 - Beta',
+        'Intended Audience :: Developers',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13'
     ],
     entry_points={
         'console_scripts': [
-            'prime-sdk=prime_sdk_py.__main__:main',
+            'coinbase-prime-py=coinbase_prime_py.__main__:main',
         ],
     },
 )
